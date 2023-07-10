@@ -14,7 +14,7 @@ import {
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-const SingleProductPage = () => {
+export const SingleProductPage = () => {
   return <h4>single product page</h4>
 }
 
@@ -51,5 +51,3 @@ const Wrapper = styled.main`
     }
   }
 `
-
-export default SingleProductPage

@@ -4,7 +4,7 @@ import { useCartContext } from '../context/cart_context'
 import { Link } from 'react-router-dom'
 import { CartContent, PageHero } from '../components'
 
-const CartPage = () => {
+export const CartPage = () => {
   return <h4>cart page</h4>
 }
 
@@ -18,4 +18,3 @@ const Wrapper = styled.main`
   }
 `
 
-export default CartPage

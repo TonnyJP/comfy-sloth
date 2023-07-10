@@ -1,15 +1,34 @@
 import React from 'react'
+import {FaBars} from 'react-icons/fa'
+import {Link, NavLink} from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../assets/logo.svg'
-import { FaBars } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
-import { links } from '../utils/constants'
+import {links} from '../utils/constants'
 import CartButtons from './CartButtons'
-import { useProductsContext } from '../context/products_context'
-import { useUserContext } from '../context/user_context'
+import {useProductsContext} from '../context/products_context'
 
 const Nav = () => {
-  return <h4>navbar</h4>
+  const { openSideBar} = useProductsContext();
+  return <NavContainer>
+    <div className='nav-center'>
+      <div className='nav-header'>
+        <Link to="/">
+          <img src={logo} alt='comfy-sloth' />
+        </Link>
+        <button type='button' className='nav-toggle' onClick={openSideBar} >
+          <FaBars />
+        </button>
+      </div>
+      <ul className='nav-links'>
+        {links.map((link) =>{
+          const {id, text, url } = link;
+          return <li key={id}><NavLink to={url}>{text}
+            </NavLink> </li>
+        })}
+      </ul>
+      <CartButtons />
+    </div>
+  </NavContainer>
 }
 
 const NavContainer = styled.nav`
@@ -71,6 +90,9 @@ const NavContainer = styled.nav`
         &:hover {
           border-bottom: 2px solid var(--clr-primary-7);
         }
+      }
+      .active{
+        border-bottom: 2px solid var(--clr-primary-7);
       }
     }
     .cart-btn-wrapper {

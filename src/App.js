@@ -1,9 +1,48 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import {AboutPage, CartPage, CheckoutPage, ErrorPage, HomePage, PageLayout, SingleProductPage} from './pages';
+import Product from './components/Product';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <PageLayout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      {
+        path: "single-product/:id",
+        element: <SingleProductPage />,
+      },
+      {
+        path: "cart",
+        element: <CartPage />
+      },
+      {
+        path: "about",
+        element: <AboutPage />
+      },
+      {
+        path: "products",
+        element: <Product />
+      },
+      {
+        path: "checkout",
+        element: <CheckoutPage />
+      }
+    ]
+  },
+])
 
 function App() {
-  return <h4>comfy sloth starter</h4>
+  return (
+  <RouterProvider router = {router} />
+  )
 }
 
 export default App

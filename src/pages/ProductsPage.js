@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { Filters, ProductList, Sort, PageHero } from '../components'
 
-const ProductsPage = () => {
+export const ProductsPage = () => {
   return <h4>products page</h4>
 }
 
@@ -19,4 +19,3 @@ const Wrapper = styled.div`
   }
 `
 
-export default ProductsPage
