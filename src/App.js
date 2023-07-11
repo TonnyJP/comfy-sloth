@@ -2,14 +2,13 @@ import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { Navbar, Sidebar, Footer } from './components'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import {AboutPage, CartPage, CheckoutPage, ErrorPage, HomePage, PageLayout, SingleProductPage} from './pages';
+import {AboutPage, CartPage, CheckoutPage, ErrorPage, HomePage, GlobaPageLayout, SingleProductPage} from './pages';
 import Product from './components/Product';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PageLayout />,
-    errorElement: <ErrorPage />,
+    element: <GlobaPageLayout />,
     children: [
       {
         index: true,
@@ -34,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "checkout",
         element: <CheckoutPage />
+      },
+      {
+        path: "*",
+        element: <ErrorPage />,
       }
     ]
   },

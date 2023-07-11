@@ -5,7 +5,24 @@ import heroBcg from '../assets/hero-bcg.jpeg'
 import heroBcg2 from '../assets/hero-bcg-2.jpeg'
 
 const Hero = () => {
-  return <h4>hero</h4>
+  return <Wrapper className='section-center'>
+    <article className='content'>
+      <h1>
+        design your <br/>
+        confort zone
+      </h1>
+      <p>
+        Artisan chambray salvia mukbang, narwhal franzen pour-over stumptown tilde normcore. Enamel pin vape pork belly 
+        jawn snackwave, mustache cliche slow-carb humblebrag kale chips solarpunk 3 wolf moon pickled ennui. DIY woke 
+        try-hard, praxis chicharrones meditation selfies vexillologist subway tile. 
+      </p>
+      <Link to={"/products"} className='btn hero-btn'>Shop now</Link>
+    </article>
+    <article className='img-container'>
+      <img src={heroBcg} alt="nice table" className='main-img' />
+      <img src={heroBcg2} alt="nice table" className='accent-img' />
+    </article>
+  </Wrapper>
 }
 
 const Wrapper = styled.section`

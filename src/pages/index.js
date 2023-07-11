@@ -7,6 +7,7 @@ export { CheckoutPage } from "./CheckoutPage";
 export { CartPage } from "./CartPage";
 export { AuthWrapper } from "./AuthWrapper";
 export { AboutPage } from "./AboutPage";
-export { PageLayout } from "./PageLayout";
+export { GlobaPageLayout } from "./PageLayout";
+export { ProductAboutSingleProductLayout } from "./AboutSinlgeProdProductLayout"
 
 
