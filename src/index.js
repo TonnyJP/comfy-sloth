@@ -1,17 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
+import './index.css';
 
-import { ProductsProvider } from './context/products_context';
-import { FilterProvider } from './context/filter_context';
-import { CartProvider } from './context/cart_context';
-import { UserProvider } from './context/user_context';
-import { Auth0Provider } from '@auth0/auth0-react';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import {ProductsProvider} from './context/products_context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient()
 
 root.render(
-<ProductsProvider>
-    <App />
-</ProductsProvider>);
+    <QueryClientProvider client={queryClient}>
+        <ProductsProvider>
+           <App />
+        </ProductsProvider>
+    </QueryClientProvider>
+);

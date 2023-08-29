@@ -19,10 +19,15 @@ const products_reducer = (state, action) => {
       return {...state, product_loading: true };
     case GET_PRODUCTS_SUCCESS:
       const featuredProducts = action.payload.filter((product) => product.featured )
-      console.log(featuredProducts)
       return {...state, product_loading: false, products: action.payload, featured_products: featuredProducts }
     case GET_PRODUCTS_ERROR:
       return {...state, product_error: true, product_loading: false }
+    case GET_SINGLE_PRODUCT_BEGIN:
+      return {...state, single_product_error: false, single_product_loading: true };
+    case GET_SINGLE_PRODUCT_SUCCESS:
+      return {...state, single_product_error: false, single_product_loading: false, single_product: action.payload };
+    case GET_SINGLE_PRODUCT_ERROR:
+      return {...state, single_product_error: true, single_product_loading: false };
     default:
       return state
   }

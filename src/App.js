@@ -4,6 +4,7 @@ import { Navbar, Sidebar, Footer } from './components'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {AboutPage, CartPage, CheckoutPage, ErrorPage, HomePage, GlobaPageLayout, SingleProductPage} from './pages';
 import Product from './components/Product';
+import {featuredProductLoader} from './pages/HomePage'
 
 const router = createBrowserRouter([
   {

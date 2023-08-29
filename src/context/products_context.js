@@ -18,7 +18,10 @@ const initialState = {
   product_loading: false,
   product_error: false,
   products: [],
-  featured_products: []
+  featured_products: [],
+  single_product_loading: false,
+  single_product_error: false,
+  single_product: {}
 }
 
 const ProductsContext = React.createContext()
@@ -27,7 +30,6 @@ export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, initialState);
 
   const openSideBar = () => {
-    console.log("open sidebar clicked")
     dispatch({type: SIDEBAR_OPEN})
   }
   const closeSideBar = () => {
@@ -35,25 +37,36 @@ export const ProductsProvider = ({ children }) => {
   }
   
 
-  const fetchData = async () => {
+ /*  const fetchData = async (url) => {
     dispatch({type: GET_PRODUCTS_BEGIN})
     try {
-      const response = await axios.get(url);
-      console.log(response.data)
+      const response = await axios.get(`${url}`);
       dispatch({type: GET_PRODUCTS_SUCCESS, payload: response.data})
     } catch (error) {
       dispatch({type: GET_PRODUCTS_ERROR })
     }
-  }
+  } */
 
-  React.useEffect(() => {
-    fetchData()
-  },[])
+ /*  const fetchSingleProduct = async (url) => {
+    dispatch({type: GET_SINGLE_PRODUCT_BEGIN});
+    try {
+      const response = await axios.get(url);
+      const singleProduct = response.data;
+      dispatch({type: GET_SINGLE_PRODUCT_SUCCESS, payload:singleProduct})
+    } catch (error) {
+      dispatch({type: GET_SINGLE_PRODUCT_ERROR})
+    }
+  } */
+
+ /*  React.useEffect(() => {
+    fetchData(`${url}`)
+  },[]) */
 
   const value = {
     ...state,
     openSideBar,
-    closeSideBar
+    closeSideBar,
+    //fetchSingleProduct
   }
 
   return (
