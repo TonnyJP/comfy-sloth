@@ -46,7 +46,7 @@ export const SingleProductPage = () => {
   }
   
 
-  const { name, price, description, stock, starts, review, id: sku, company, images} = data.data;
+  const { name, price, description, stock, stars, reviews, id: sku, company, images} = data.data;
  
   return <Wrapper>
     <PageHero title = {name} product={data}/>
@@ -58,7 +58,7 @@ export const SingleProductPage = () => {
         <ProductImages images = {images}/>
         <section className='content'>
           <h2>{name}</h2>
-          <Stars />
+          <Stars  stars= {stars} reviews={reviews}/>
           <h5 className='price'>{formatPrice(price)}</h5>
           <p className='desc'>{description}</p>
           <p className='info'>
@@ -74,9 +74,8 @@ export const SingleProductPage = () => {
             {company}
           </p>
           <hr/>
-          {stock > 0 ? <AddToCart /> : null}
+          {stock > 0 ? <AddToCart product = {data.data}/> : null}
         </section>
-
       </div>
     </div>
   </Wrapper>

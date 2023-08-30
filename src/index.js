@@ -12,7 +12,9 @@ const queryClient = new QueryClient()
 root.render(
     <QueryClientProvider client={queryClient}>
         <ProductsProvider>
-           <App />
+            <ProductsProvider>
+                <App />
+            </ProductsProvider>
         </ProductsProvider>
     </QueryClientProvider>
 );
