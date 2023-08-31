@@ -37,7 +37,7 @@ export const ProductsProvider = ({ children }) => {
   }
   
 
- /*  const fetchData = async (url) => {
+   const fetchData = async (url) => {
     dispatch({type: GET_PRODUCTS_BEGIN})
     try {
       const response = await axios.get(`${url}`);
@@ -45,7 +45,7 @@ export const ProductsProvider = ({ children }) => {
     } catch (error) {
       dispatch({type: GET_PRODUCTS_ERROR })
     }
-  } */
+  } 
 
  /*  const fetchSingleProduct = async (url) => {
     dispatch({type: GET_SINGLE_PRODUCT_BEGIN});
@@ -58,9 +58,9 @@ export const ProductsProvider = ({ children }) => {
     }
   } */
 
- /*  React.useEffect(() => {
+  React.useEffect(() => {
     fetchData(`${url}`)
-  },[]) */
+  },[])
 
   const value = {
     ...state,

@@ -5,6 +5,7 @@ import './index.css';
 
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {ProductsProvider} from './context/products_context';
+import {FilterProvider} from './context/filter_context';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const queryClient = new QueryClient()
@@ -12,9 +13,9 @@ const queryClient = new QueryClient()
 root.render(
     <QueryClientProvider client={queryClient}>
         <ProductsProvider>
-            <ProductsProvider>
+            <FilterProvider>
                 <App />
-            </ProductsProvider>
+            </FilterProvider>
         </ProductsProvider>
     </QueryClientProvider>
 );
