@@ -59,6 +59,10 @@ const filter_reducer = (state, action) => {
     if(category !== 'all'){
       tempProducts = tempProducts.filter((product) => product.category.toLowerCase() === category.toLowerCase())
     }
+    //filtering company
+    if(company !== 'all'){
+      tempProducts = tempProducts.filter((product) => product.company.toLowerCase() === company.toLowerCase())
+    }
    //filtering price
     if(price!== 'all'){
       tempProducts = tempProducts.filter((product) => product.price <= price)
