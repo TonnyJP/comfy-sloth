@@ -47,6 +47,7 @@ const filter_reducer = (state, action) => {
     const {name, value } = action.payload;
     return {...state, filters:{...state.filters, [name]:value}}
   }
+  
   if(action.type === FILTER_PRODUCTS){
     const { all_products} = state;
     let tempProducts = [...all_products];
@@ -76,8 +77,7 @@ const filter_reducer = (state, action) => {
      if(shipping){
       tempProducts = tempProducts.filter((product) => product.shipping === true)
     } 
-    
-    console.log("in reducer", tempProducts)
+
     return {...state , filtered_products: tempProducts}
   }
   if(action.type === CLEAR_FILTERS){
