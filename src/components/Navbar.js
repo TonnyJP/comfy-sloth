@@ -6,9 +6,11 @@ import logo from '../assets/logo.svg'
 import {links} from '../utils/constants'
 import CartButtons from './CartButtons'
 import {useProductsContext} from '../context/products_context'
+import {useUserContext} from '../context/user_context'
 
 const Nav = () => {
   const { openSideBar} = useProductsContext();
+  const {user} = useUserContext();
   return <NavContainer>
     <div className='nav-center'>
       <div className='nav-header'>
@@ -25,7 +27,9 @@ const Nav = () => {
           return <li key={id}><NavLink to={url}>{text}
             </NavLink> </li>
         })}
+        {user? <li><Link to= "/checkout">checkout</Link></li>: null}
       </ul>
+      
       <CartButtons />
     </div>
   </NavContainer>

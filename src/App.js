@@ -1,10 +1,10 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Navbar, Sidebar, Footer } from './components'
+//import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+//import { Navbar, Sidebar, Footer } from './components'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import {AboutPage, CartPage, CheckoutPage, ErrorPage, HomePage, GlobaPageLayout, SingleProductPage, ProductsPage} from './pages';
-import Product from './components/Product';
-import {featuredProductLoader} from './pages/HomePage'
+import {AboutPage, CartPage, CheckoutPage, ErrorPage, HomePage, GlobaPageLayout, SingleProductPage, ProductsPage, PrivateRoute, AuthWrapper} from './pages';
+//import Product from './components/Product';
+//import {featuredProductLoader} from './pages/HomePage'
 
 const router = createBrowserRouter([
   {
@@ -33,7 +33,9 @@ const router = createBrowserRouter([
       },
       {
         path: "checkout",
-        element: <CheckoutPage />
+        element: <PrivateRoute>
+          <CheckoutPage />
+        </PrivateRoute>
       },
       {
         path: "*",
@@ -45,7 +47,9 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-  <RouterProvider router = {router} />
+    <AuthWrapper>
+      <RouterProvider router = {router} />
+    </AuthWrapper>
   )
 }
 

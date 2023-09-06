@@ -6,10 +6,12 @@ import logo from '../assets/logo.svg'
 import {links} from '../utils/constants'
 import CartButtons from './CartButtons'
 import {useProductsContext} from '../context/products_context'
+import {useUserContext} from '../context/user_context'
 
 const Sidebar = () => {
   //const isOpen = false;
-  const { isSidebarOpen, closeSideBar} = useProductsContext()
+  const { isSidebarOpen, closeSideBar} = useProductsContext();
+  const {user} = useUserContext();
   return <SidebarContainer >
     <aside className={`${isSidebarOpen? "sidebar show-sidebar": "sidebar"}`}>
       <div className='sidebar-header'>
@@ -27,9 +29,9 @@ const Sidebar = () => {
             </Link>
           </li>
         })}
-        <li>
+       {user? <li>
           <Link to="/checkout" onClick={closeSideBar}>checkout</Link>
-        </li>
+        </li>: null}
       </ul>
       <CartButtons />
     </aside>

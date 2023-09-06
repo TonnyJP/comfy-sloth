@@ -1,9 +1,13 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
-// will remove later
-import { useUserContext } from '../context/user_context';
+import { Navigate } from 'react-router-dom';
+import {useAuth0} from '@auth0/auth0-react';
 
-export const PrivateRoute = () => {
-  return <h4>Private Route</h4>;
+export const PrivateRoute = ({children}) => {
+  const {user} = useAuth0();
+
+  return (
+    <div>
+       {user? children: <Navigate to="/" replace={true}/>}
+    </div>
+  )
 };
