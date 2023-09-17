@@ -79,7 +79,7 @@ export const FilterProvider = ({ children }) => {
   const clearFilter = () => {
     dispatch({type: CLEAR_FILTERS})
   }
-  console.log("in filter-context", state)
+  
   return (
     <FilterContext.Provider value={{...state, setGridView, setListView, updateSort, updateFilters, clearFilter}}>
       {children}

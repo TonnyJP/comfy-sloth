@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 
 export const CheckoutPage = () => {
   const {cart} = useCartContext();
-  console.log(cart)
+  //console.log(cart)
 
   return <main>
     <PageHero title="checkout" />

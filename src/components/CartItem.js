@@ -5,7 +5,6 @@ import AmountButtons from './AmountButtons'
 import { FaTrash } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 const CartItem = ({id, image, name, color, price, amount}) => {
-  console.log("in cartItem", color)
   const {removeItem, toggleAmount} = useCartContext();
 
   const increase = () => {
